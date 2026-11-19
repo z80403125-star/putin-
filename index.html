@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f7f2">
+  <meta name="description" content="Интерактивная викторина о доходах, расходах и прибыли. Проверьте свои знания за 20 вопросов.">
+  <title>Финансовый радар — викторина о доходе и прибыли</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Финансовый радар — на главную">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none">
+            <path d="M5 23.5 12.2 16l5.2 4.8L27 10.5" stroke="currentColor" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M20.5 10.5H27v6.2" stroke="currentColor" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <span>финансовый<span class="brand-light">радар</span></span>
+      </a>
+      <div class="topbar-note"><span class="live-dot"></span> Мини-курс по финансам</div>
+    </header>
+
+    <main>
+      <section class="intro" aria-labelledby="page-title">
+        <div class="eyebrow"><span class="eyebrow-line"></span> Знания, которые работают на вас</div>
+        <h1 id="page-title">Доход и прибыль:<br><span>проверьте себя.</span></h1>
+        <p class="intro-copy">20 коротких вопросов, чтобы разобраться в деньгах увереннее. Без сложных терминов — только то, что пригодится в жизни и работе.</p>
+        <div class="intro-meta">
+          <span>
+            <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M10 6v4l2.5 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            Около 5 минут
+          </span>
+          <span>
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m10 2 2 5.2 5.5.4-4.2 3.5 1.4 5.3L10 13.5l-4.7 2.9 1.4-5.3-4.2-3.5 5.5-.4L10 2Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
+            20 вопросов
+          </span>
+        </div>
+      </section>
+
+      <section class="quiz-card" aria-label="Викторина о доходе и прибыли">
+        <div class="quiz-top">
+          <div class="quiz-label"><span class="label-dot"></span> ВАША ВИКТОРИНА</div>
+          <div class="question-counter" id="question-counter">ВОПРОС <strong>01</strong> <span>/ 20</span></div>
+        </div>
+
+        <div class="progress-track" role="progressbar" aria-label="Прогресс викторины" aria-valuemin="0" aria-valuemax="20" aria-valuenow="0" id="progress-bar">
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+
+        <div id="quiz-content">
+          <div class="question-area">
+            <div class="question-number" id="question-number">01</div>
+            <h2 id="question-text"></h2>
+          </div>
+          <div class="answer-list" id="answer-list" role="group" aria-label="Варианты ответа"></div>
+          <div class="feedback" id="feedback" aria-live="polite" hidden></div>
+          <div class="quiz-footer">
+            <span class="selection-hint" id="selection-hint">Выберите один вариант ответа</span>
+            <button class="next-button" id="next-button" type="button" disabled>
+              <span id="next-label">Следующий вопрос</span>
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <section class="results" id="results" aria-labelledby="results-title" hidden>
+          <div class="result-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none"><path d="M12 25.5 20.5 34 37 16" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="24" r="21" stroke="currentColor" stroke-width="1.5"/></svg>
+          </div>
+          <p class="result-kicker">ВИКТОРИНА ЗАВЕРШЕНА</p>
+          <h2 id="results-title">Отличная работа!</h2>
+          <p class="result-message" id="result-message"></p>
+          <div class="score-card">
+            <div class="score-main">
+              <span class="score-caption">ВАШ РЕЗУЛЬТАТ</span>
+              <strong id="score-points">0 <small>/ 20 баллов</small></strong>
+              <span class="score-percent" id="score-percent">0%</span>
+            </div>
+            <div class="score-divider"></div>
+            <div class="score-details">
+              <div><span class="status-dot correct-dot"></span><span>Правильных</span><strong id="correct-count">0</strong></div>
+              <div><span class="status-dot incorrect-dot"></span><span>Неправильных</span><strong id="incorrect-count">0</strong></div>
+            </div>
+          </div>
+          <button class="restart-button" id="restart-button" type="button">
+            Пройти заново
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M16.5 8A6.8 6.8 0 0 0 4 6.2L2.5 8M3 4v4h4m-3.5 4a6.8 6.8 0 0 0 12.5 1.8l1.5-1.8M17 16v-4h-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </section>
+      </section>
+
+      <footer class="page-footer">
+        <span>Финансовая грамотность начинается с любопытства.</span>
+        <span>Учитесь в своём темпе <span class="footer-sparkle">✳</span></span>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
